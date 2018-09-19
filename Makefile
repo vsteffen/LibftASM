@@ -34,7 +34,7 @@ HPATH	=	-I $(ROOT)/includes
 TESTS	=	$(ROOT)/tests
 TESTSRC	=	$(TESTS)/main.c
 
-SRC	=	hello.s
+SRC	=	ft_puts.s
 
 .PHONY: all clean fclean re tests
 
@@ -43,10 +43,10 @@ all: $(NAME)
 $(NAME): $(OPATH) $(OBJ)
 	@echo "Building $@"
 	@$(AR) rc $@ $(OBJ)
-	@$(CC) -o maintest $(TESTSRC)
 	@echo "\033[32m ╔════════════════╗"
 	@echo " ║  All is done ! ║"
 	@echo " ╚════════════════╝\033[0m"
+	@$(CC) -o maintest $(TESTSRC) libfts.a $(HPATH)
 
 $(OPATH)/%.o: $(ASMPATH)/%.s
 	@$(NASM) -f macho64 -o $@ $<
@@ -69,5 +69,9 @@ fclean: clean
 	@$(RM) -f $(NAME)
 	@$(RM) -f maintest
 	@echo "\033[32m$(NAME) deleted.\033[0m\n"
+
+tests:
+	@echo "Building maintest"
+	@$(CC) -o maintest $(TESTSRC) libfts.a $(HPATH)
 
 re: fclean all
