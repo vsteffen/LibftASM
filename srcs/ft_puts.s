@@ -5,6 +5,8 @@ extern	_write
 section .text
 
 _ft_puts:
+	cmp rdi, 0				; if rdi ptr == \0
+	je is_null
 	mov r8, rdi				; save rdi address
 	xor r9, r9				; set count to 0
 
@@ -26,12 +28,20 @@ print:
 	mov rdx, r9				; number of bytes
 	syscall
 	mov rax, 0x02000004		; system call for write
+	mov rdi, 1				; file handle 1 is stdout
 	lea rsi, [rel newline]	; print \n
 	mov rdx, 1
 	syscall
 	ret
 
+is_null:
+	mov rax, 0x02000004		; system call for write
+	mov rdi, 1				; file handle 1 is stdout
+	lea rsi, [rel null_print] ; address of string to output
+	mov rdx, 7				; number of bytes
+	syscall
+	ret
 
 section .data
-
-newline: db 10
+	newline: db 10
+	null_print: db "(null)", 10

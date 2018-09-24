@@ -13,6 +13,9 @@
 #ifndef LIBFTS_H
 # define LIBFTS_H
 
+#include <stddef.h>
+
 void		ft_puts(const char *s);
+size_t		ft_strlen(const char *s);
 
 #endif

@@ -34,7 +34,8 @@ HPATH	=	-I $(ROOT)/includes
 TESTS	=	$(ROOT)/tests
 TESTSRC	=	$(TESTS)/main.c
 
-SRC	=	ft_puts.s
+SRC	=	ft_puts.s \
+		ft_strlen.s
 
 .PHONY: all clean fclean re tests
 
