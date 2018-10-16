@@ -1,44 +1,35 @@
 global	_ft_puts
-extern	_write
-
+extern	_ft_strlen
 
 section .text
 
 _ft_puts:
-	cmp rdi, 0				; if rdi ptr == \0
-	je is_null
-	mov r8, rdi				; save rdi address
-	xor r9, r9				; set count to 0
+	cmp rdi, 0
+	je ptr_is_null
+	push rdi
+	call _ft_strlen
+	pop rdi
 
-compare:
-	cmp byte[rdi], 0		; if rdi ptr == \0
-	je print
-	jmp add_count
-
-add_count:
-	inc r9
-	inc rdi					; set next char
-	jmp compare
-
-print:
-	mov rdi, r8				; get initial ptr of rdi
-	mov rax, 0x02000004		; system call for write
-	mov rsi, rdi			; address of string to output
-	mov rdi, 1				; file handle 1 is stdout
-	mov rdx, r9				; number of bytes
+; print rdi
+	mov rdx, rax ; 3rd arg
+	mov rax, 0x02000004 ; syscall
+	mov rsi, rdi ; 2nd arg
+	mov rdi, 1 ; 1st arg
 	syscall
-	mov rax, 0x02000004		; system call for write
-	mov rdi, 1				; file handle 1 is stdout
-	lea rsi, [rel newline]	; print \n
+
+; print \n
+	mov rax, 0x02000004
+	mov rdi, 1
+	lea rsi, [rel newline]
 	mov rdx, 1
 	syscall
 	ret
 
-is_null:
-	mov rax, 0x02000004		; system call for write
-	mov rdi, 1				; file handle 1 is stdout
-	lea rsi, [rel null_print] ; address of string to output
-	mov rdx, 7				; number of bytes
+ptr_is_null:
+	mov rax, 0x02000004
+	mov rdi, 1
+	lea rsi, [rel null_print]
+	mov rdx, 7
 	syscall
 	ret
 

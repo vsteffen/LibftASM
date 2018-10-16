@@ -35,7 +35,10 @@ TESTS	=	$(ROOT)/tests
 TESTSRC	=	$(TESTS)/main.c
 
 SRC	=	ft_puts.s \
-		ft_strlen.s
+		ft_strlen.s \
+		ft_memset.s \
+		ft_memcpy.s \
+		ft_strdup.s
 
 .PHONY: all clean fclean re tests
 
