@@ -36,9 +36,11 @@ TESTSRC	=	$(TESTS)/main.c
 
 SRC	=	ft_puts.s \
 		ft_strlen.s \
-		ft_memset.s \
 		ft_memcpy.s \
-		ft_strdup.s
+		ft_memset.s \
+		ft_strdup.s \
+		ft_bzero.s \
+		ft_strcat.s
 
 .PHONY: all clean fclean re tests
 

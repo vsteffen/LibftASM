@@ -4,7 +4,9 @@ section .text
 
 _ft_memset:
 	mov rax, rdi
+	push rax
 	mov rcx, rdx
-	mov al, sil
+	mov eax, esi
 	rep stosb
+	pop rax
 	ret

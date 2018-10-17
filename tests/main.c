@@ -29,12 +29,12 @@ void	arrow_y(void)
 	write(1, ARROW_YELLOW, strlen(ARROW_YELLOW));
 }
 
-void	reset_ptr(void **ptr1, void **ptr2)
+void	reset_str(char **str1, char **str2)
 {
-	free(*ptr1);
-	free(*ptr2);
-	*ptr1 = strdup("Hello world!3");
-	*ptr2 = strdup("Hello world!4");
+	free(*str1);
+	free(*str2);
+	*str1 = strdup("Hello world!3");
+	*str2 = strdup("Hello world!4");
 }
 
 int		main(int ac, char **av)
@@ -63,32 +63,43 @@ int		main(int ac, char **av)
 
 	puts("═══════════════════════════════════════════════");
 
-	void *ptr1 = strdup("Hello world!1");
-	void *ptr2 = strdup("Hello world!2");
-	printf("ptr1 and ptr2 equals to \"Hello world!X\"\n");
-	memset(ptr1, 42, 5);
-	ft_memset(ptr2, 42, 5);
-	arrow_g();printf("   memset(ptr1, 42, 5) -> ptr1 = [%s]\n", ptr1);
-	arrow_y();printf("ft_memset(ptr2, 42, 5) -> ptr2 = [%s]\n", ptr2);
-	reset_ptr(&ptr1, &ptr2);
-	memset(ptr1, 64, 5);
-	ft_memset(ptr2, 64, 5);
-	arrow_g();printf("   memset(ptr1, 64, 5) -> ptr1 = [%s]\n", ptr1);
-	arrow_y();printf("ft_memset(ptr2, 64, 5) -> ptr2 = [%s]\n", ptr2);
+	char *str1 = strdup("Hello world!1");
+	char *str2 = strdup("Hello world!2");
+	printf("str1 and str2 equals to \"Hello world!X\"\n");
+	memset(str1, 42, 5);
+	ft_memset(str2, 42, 5);
+	arrow_g();printf("   memset(str1, 42, 5) -> str1 = [%s]\n", str1);
+	arrow_y();printf("ft_memset(str2, 42, 5) -> str2 = [%s]\n", str2);
+	reset_str(&str1, &str2);
+	memset(str1, 64, 5);
+	ft_memset(str2, 64, 5);
+	arrow_g();printf("   memset(str1, 64, 5) -> str1 = [%s]\n", str1);
+	arrow_y();printf("ft_memset(str2, 64, 5) -> str2 = [%s]\n", str2);
 
 	puts("═══════════════════════════════════════════════");
 
-	memcpy(ptr1, "Allow", 5);
-	ft_memcpy(ptr2, "Allow", 5);
-	arrow_g();printf("   memcpy(ptr1, \"Allow\", 5) -> ptr1 = [%s]\n", ptr1);
-	arrow_y();printf("ft_memcpy(ptr2, \"Allow\", 5) -> ptr2 = [%s]\n", ptr2);
+	memcpy(str1, "Allow", 5);
+	ft_memcpy(str2, "Allow", 5);
+	arrow_g();printf("   memcpy(str1, \"Allow\", 5) -> str1 = [%s]\n", str1);
+	arrow_y();printf("ft_memcpy(str2, \"Allow\", 5) -> str2 = [%s]\n", str2);
 
 	puts("═══════════════════════════════════════════════");
 
-	arrow_g();printf("   strdup(\"Hello Marvin\") -> ptr1 = [%s]\n", (ptr1 =    strdup("Hello Marvin")));
-	arrow_y();printf("ft_strdup(\"Hello Marvin\") -> ptr2 = [%s]\n", (ptr2 = ft_strdup("Hello Marvin")));
+	arrow_g();printf("   strdup(\"Hello Marvin\") -> str1 = [%s]\n", (str1 =    strdup("Hello Marvin")));
+	arrow_y();printf("ft_strdup(\"Hello Marvin\") -> str2 = [%s]\n", (str2 = ft_strdup("Hello Marvin")));
 
 	puts("═══════════════════════════════════════════════");
 
+	   bzero(str1 + 6, 5);
+ 	ft_bzero(str2 + 6, 5);
+	arrow_g();printf("   bzero(str1 + 6, 5) -> str1 = [%s]\n", str1);
+	arrow_y();printf("ft_bzero(str2 + 6, 5) -> str2 = [%s]\n", str2);
+
+	puts("═══════════════════════════════════════════════");
+
+	arrow_g();printf("   strcat(str1, \"Otters\") -> str1 = [%s]\n",    strcat(str1, "Otters"));
+	arrow_y();printf("ft_strcat(str2, \"Otters\") -> str2 = [%s]\n", ft_strcat(str2, "Otters"));
+
+	puts("═══════════════════════════════════════════════");
 	return (0);
 }
