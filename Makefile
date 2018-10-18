@@ -40,7 +40,14 @@ SRC	=	ft_puts.s \
 		ft_memset.s \
 		ft_strdup.s \
 		ft_bzero.s \
-		ft_strcat.s
+		ft_strcat.s \
+		ft_isalpha.s \
+		ft_isalnum.s \
+		ft_isascii.s \
+		ft_isdigit.s \
+		ft_isprint.s \
+		ft_tolower.s \
+		ft_toupper.s
 
 .PHONY: all clean fclean re tests
 

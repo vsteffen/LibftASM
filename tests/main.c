@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <ctype.h>
 
 #define ARROW_GREEN "\033[32m-->\033[0m "
 #define ARROW_YELLOW "\033[33m-->\033[0m "
@@ -101,5 +102,21 @@ int		main(int ac, char **av)
 	arrow_y();printf("ft_strcat(str2, \"Otters\") -> str2 = [%s]\n", ft_strcat(str2, "Otters"));
 
 	puts("═══════════════════════════════════════════════");
+
+	arrow_g();printf("   isalpha(-42) -> res = [%d]\n",    isalpha(-42));
+	arrow_y();printf("ft_isalpha(-42) -> res = [%d]\n", ft_isalpha(-42));
+	arrow_g();printf("   isalpha(42) -> res = [%d]\n",    isalpha(42));
+	arrow_y();printf("ft_isalpha(42) -> res = [%d]\n", ft_isalpha(42));
+	arrow_g();printf("   isalpha(81) -> res = [%d]\n",    isalpha(81));
+	arrow_y();printf("ft_isalpha(81) -> res = [%d]\n", ft_isalpha(81));
+	arrow_g();printf("   isalpha(93) -> res = [%d]\n",    isalpha(93));
+	arrow_y();printf("ft_isalpha(93) -> res = [%d]\n", ft_isalpha(93));
+	arrow_g();printf("   isalpha(113) -> res = [%d]\n",    isalpha(113));
+	arrow_y();printf("ft_isalpha(113) -> res = [%d]\n", ft_isalpha(113));
+	arrow_g();printf("   isalpha(124) -> res = [%d]\n",    isalpha(124));
+	arrow_y();printf("ft_isalpha(124) -> res = [%d]\n", ft_isalpha(124));
+
+	puts("═══════════════════════════════════════════════");
+
 	return (0);
 }
