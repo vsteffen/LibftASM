@@ -7,7 +7,7 @@ _ft_isalnum:
 	cmp edi, 48
 	jl ret_false
 	cmp edi, 58
-	jl ret_false
+	jl ret_true
 
 ; upper
 	cmp edi, 65

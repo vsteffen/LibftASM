@@ -6,7 +6,7 @@ _ft_tolower:
 	mov eax, edi
 	cmp edi, 65
 	jl exit
-	cmp edi, 91
+	cmp edi, 90
 	jg exit
 	add eax, 32
 

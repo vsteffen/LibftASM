@@ -47,7 +47,8 @@ SRC	=	ft_puts.s \
 		ft_isdigit.s \
 		ft_isprint.s \
 		ft_tolower.s \
-		ft_toupper.s
+		ft_toupper.s \
+		ft_cat.s
 
 .PHONY: all clean fclean re tests
 

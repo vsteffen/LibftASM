@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <ctype.h>
+#include <fcntl.h>
 
 #define ARROW_GREEN "\033[32m-->\033[0m "
 #define ARROW_YELLOW "\033[33m-->\033[0m "
@@ -40,6 +41,7 @@ void	reset_str(char **str1, char **str2)
 
 int		main(int ac, char **av)
 {
+	setvbuf(stdout, NULL, _IONBF, 0);
 	puts("═══════════════════════════════════════════════");
 
 	arrow_g();puts("puts(\"Hello world!\"):");
@@ -117,6 +119,11 @@ int		main(int ac, char **av)
 	arrow_y();printf("ft_isalpha(124) -> res = [%d]\n", ft_isalpha(124));
 
 	puts("═══════════════════════════════════════════════");
+
+	int fd = open("Makefile", O_RDONLY);
+	arrow_g();printf("ft_cat(fd) -> [");
+	ft_cat(fd);
+	printf("\n]\n");
 
 	return (0);
 }
