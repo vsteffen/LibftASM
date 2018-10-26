@@ -30,5 +30,8 @@ int			ft_isprint(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
 int			ft_cat(int fd);
+void		ft_putchar(char c);
+void		ft_putstr(const char *c);
+void		ft_putnbr(long long int nb);
 
 #endif

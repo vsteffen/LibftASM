@@ -42,7 +42,7 @@ void	reset_str(char **str1, char **str2)
 int		main(int ac, char **av)
 {
 	setvbuf(stdout, NULL, _IONBF, 0);
-	puts("═══════════════════════════════════════════════");
+	puts("════════════════════════════════════════════════════════════════");
 
 	arrow_g();puts("puts(\"Hello world!\"):");
 	puts("Hello world!");
@@ -57,14 +57,14 @@ int		main(int ac, char **av)
 	arrow_y();puts("ft_puts(NULL):");
 	ft_puts(NULL);
 
-	puts("═══════════════════════════════════════════════");
+	puts("════════════════════════════════════════════════════════════════");
 
 	arrow_g();printf("   strlen(\"Hello world!\") -> length = [%lu]\n", strlen("Hello world!"));
 	arrow_y();printf("ft_strlen(\"Hello world!\") -> length = [%lu]\n", ft_strlen("Hello world!"));
 	arrow_g();printf("   strlen(\"\") -> length = [%lu]\n", strlen(""));
 	arrow_y();printf("ft_strlen(\"\") -> length = [%lu]\n", ft_strlen(""));
 
-	puts("═══════════════════════════════════════════════");
+	puts("════════════════════════════════════════════════════════════════");
 
 	char *str1 = strdup("Hello world!1");
 	char *str2 = strdup("Hello world!2");
@@ -79,51 +79,150 @@ int		main(int ac, char **av)
 	arrow_g();printf("   memset(str1, 64, 5) -> str1 = [%s]\n", str1);
 	arrow_y();printf("ft_memset(str2, 64, 5) -> str2 = [%s]\n", str2);
 
-	puts("═══════════════════════════════════════════════");
+	puts("════════════════════════════════════════════════════════════════");
 
 	memcpy(str1, "Allow", 5);
 	ft_memcpy(str2, "Allow", 5);
 	arrow_g();printf("   memcpy(str1, \"Allow\", 5) -> str1 = [%s]\n", str1);
 	arrow_y();printf("ft_memcpy(str2, \"Allow\", 5) -> str2 = [%s]\n", str2);
 
-	puts("═══════════════════════════════════════════════");
+	puts("════════════════════════════════════════════════════════════════");
 
 	arrow_g();printf("   strdup(\"Hello Marvin\") -> str1 = [%s]\n", (str1 =    strdup("Hello Marvin")));
 	arrow_y();printf("ft_strdup(\"Hello Marvin\") -> str2 = [%s]\n", (str2 = ft_strdup("Hello Marvin")));
+	arrow_g();printf("   strdup(\"Hello Marvin\") -> str1 = [%s]\n",    strdup("Hello Marvin"));
+	arrow_y();printf("ft_strdup(\"Hello Marvin\") -> str2 = [%s]\n", ft_strdup("Hello Marvin"));
 
-	puts("═══════════════════════════════════════════════");
+	puts("════════════════════════════════════════════════════════════════");
 
 	   bzero(str1 + 6, 5);
  	ft_bzero(str2 + 6, 5);
 	arrow_g();printf("   bzero(str1 + 6, 5) -> str1 = [%s]\n", str1);
 	arrow_y();printf("ft_bzero(str2 + 6, 5) -> str2 = [%s]\n", str2);
 
-	puts("═══════════════════════════════════════════════");
+	puts("════════════════════════════════════════════════════════════════");
 
 	arrow_g();printf("   strcat(str1, \"Otters\") -> str1 = [%s]\n",    strcat(str1, "Otters"));
 	arrow_y();printf("ft_strcat(str2, \"Otters\") -> str2 = [%s]\n", ft_strcat(str2, "Otters"));
 
-	puts("═══════════════════════════════════════════════");
+	puts("════════════════════════════════════════════════════════════════");
 
-	arrow_g();printf("   isalpha(-42) -> res = [%d]\n",    isalpha(-42));
-	arrow_y();printf("ft_isalpha(-42) -> res = [%d]\n", ft_isalpha(-42));
-	arrow_g();printf("   isalpha(42) -> res = [%d]\n",    isalpha(42));
-	arrow_y();printf("ft_isalpha(42) -> res = [%d]\n", ft_isalpha(42));
-	arrow_g();printf("   isalpha(81) -> res = [%d]\n",    isalpha(81));
-	arrow_y();printf("ft_isalpha(81) -> res = [%d]\n", ft_isalpha(81));
-	arrow_g();printf("   isalpha(93) -> res = [%d]\n",    isalpha(93));
-	arrow_y();printf("ft_isalpha(93) -> res = [%d]\n", ft_isalpha(93));
-	arrow_g();printf("   isalpha(113) -> res = [%d]\n",    isalpha(113));
-	arrow_y();printf("ft_isalpha(113) -> res = [%d]\n", ft_isalpha(113));
-	arrow_g();printf("   isalpha(124) -> res = [%d]\n",    isalpha(124));
-	arrow_y();printf("ft_isalpha(124) -> res = [%d]\n", ft_isalpha(124));
+	arrow_g();printf("   isalpha(42) [*] -> res = [%d]\n",    isalpha(42));
+	arrow_y();printf("ft_isalpha(42) [*] -> res = [%d]\n", ft_isalpha(42));
+	arrow_g();printf("   isalpha(52) [4] -> res = [%d]\n",    isalpha(52));
+	arrow_y();printf("ft_isalpha(52) [4] -> res = [%d]\n", ft_isalpha(52));
+	arrow_g();printf("   isalpha(70) [F] -> res = [%d]\n",    isalpha(70));
+	arrow_y();printf("ft_isalpha(70) [F] -> res = [%d]\n", ft_isalpha(70));
+	arrow_g();printf("   isalpha(94) [^] -> res = [%d]\n",    isalpha(94));
+	arrow_y();printf("ft_isalpha(94) [^] -> res = [%d]\n", ft_isalpha(94));
+	arrow_g();printf("   isalpha(116) [t] -> res = [%d]\n",    isalpha(116));
+	arrow_y();printf("ft_isalpha(116) [t] -> res = [%d]\n", ft_isalpha(116));
+	arrow_g();printf("   isalpha(124) [|] -> res = [%d]\n",    isalpha(124));
+	arrow_y();printf("ft_isalpha(124) [|] -> res = [%d]\n", ft_isalpha(124));
 
-	puts("═══════════════════════════════════════════════");
+	puts("════════════════════════════════════════════════════════════════");
 
-	int fd = open("Makefile", O_RDONLY);
-	arrow_g();printf("ft_cat(fd) -> [");
+	arrow_g();printf("   isalnum(42) [*] -> res = [%d]\n",    isalnum(42));
+	arrow_y();printf("ft_isalnum(42) [*] -> res = [%d]\n", ft_isalnum(42));
+	arrow_g();printf("   isalnum(52) [4] -> res = [%d]\n",    isalnum(52));
+	arrow_y();printf("ft_isalnum(52) [4] -> res = [%d]\n", ft_isalnum(52));
+	arrow_g();printf("   isalnum(70) [F] -> res = [%d]\n",    isalnum(70));
+	arrow_y();printf("ft_isalnum(70) [F] -> res = [%d]\n", ft_isalnum(70));
+	arrow_g();printf("   isalnum(94) [^] -> res = [%d]\n",    isalnum(94));
+	arrow_y();printf("ft_isalnum(94) [^] -> res = [%d]\n", ft_isalnum(94));
+	arrow_g();printf("   isalnum(116) [t] -> res = [%d]\n",    isalnum(116));
+	arrow_y();printf("ft_isalnum(116) [t] -> res = [%d]\n", ft_isalnum(116));
+	arrow_g();printf("   isalnum(124) [|] -> res = [%d]\n",    isalnum(124));
+	arrow_y();printf("ft_isalnum(124) [|] -> res = [%d]\n", ft_isalnum(124));
+
+	puts("════════════════════════════════════════════════════════════════");
+
+	arrow_g();printf("   isdigit(42) [*] -> res = [%d]\n",    isdigit(42));
+	arrow_y();printf("ft_isdigit(42) [*] -> res = [%d]\n", ft_isdigit(42));
+	arrow_g();printf("   isdigit(52) [4] -> res = [%d]\n",    isdigit(52));
+	arrow_y();printf("ft_isdigit(52) [4] -> res = [%d]\n", ft_isdigit(52));
+	arrow_g();printf("   isdigit(70) [F] -> res = [%d]\n",    isdigit(70));
+	arrow_y();printf("ft_isdigit(70) [F] -> res = [%d]\n", ft_isdigit(70));
+	arrow_g();printf("   isdigit(94) [^] -> res = [%d]\n",    isdigit(94));
+	arrow_y();printf("ft_isdigit(94) [^] -> res = [%d]\n", ft_isdigit(94));
+	arrow_g();printf("   isdigit(116) [t] -> res = [%d]\n",    isdigit(116));
+	arrow_y();printf("ft_isdigit(116) [t] -> res = [%d]\n", ft_isdigit(116));
+	arrow_g();printf("   isdigit(124) [|] -> res = [%d]\n",    isdigit(124));
+	arrow_y();printf("ft_isdigit(124) [|] -> res = [%d]\n", ft_isdigit(124));
+
+	puts("════════════════════════════════════════════════════════════════");
+
+	arrow_g();printf("   isascii(42) [*] -> res = [%d]\n",    isascii(42));
+	arrow_y();printf("ft_isascii(42) [*] -> res = [%d]\n", ft_isascii(42));
+	arrow_g();printf("   isascii(52) [4] -> res = [%d]\n",    isascii(52));
+	arrow_y();printf("ft_isascii(52) [4] -> res = [%d]\n", ft_isascii(52));
+	arrow_g();printf("   isascii(70) [F] -> res = [%d]\n",    isascii(70));
+	arrow_y();printf("ft_isascii(70) [F] -> res = [%d]\n", ft_isascii(70));
+	arrow_g();printf("   isascii(94) [^] -> res = [%d]\n",    isascii(94));
+	arrow_y();printf("ft_isascii(94) [^] -> res = [%d]\n", ft_isascii(94));
+	arrow_g();printf("   isascii(116) [t] -> res = [%d]\n",    isascii(116));
+	arrow_y();printf("ft_isascii(116) [t] -> res = [%d]\n", ft_isascii(116));
+	arrow_g();printf("   isascii(124) [|] -> res = [%d]\n",    isascii(124));
+	arrow_y();printf("ft_isascii(124) [|] -> res = [%d]\n", ft_isascii(124));
+	arrow_g();printf("   isascii(142) [∅] -> res = [%d]\n",    isascii(142));
+	arrow_y();printf("ft_isascii(142) [∅] -> res = [%d]\n", ft_isascii(142));
+
+	puts("════════════════════════════════════════════════════════════════");
+
+	arrow_g();printf("   toupper(42) [*] -> res = [%d]\n",    toupper(42));
+	arrow_y();printf("ft_toupper(42) [*] -> res = [%d]\n", ft_toupper(42));
+	arrow_g();printf("   toupper(52) [4] -> res = [%d]\n",    toupper(52));
+	arrow_y();printf("ft_toupper(52) [4] -> res = [%d]\n", ft_toupper(52));
+	arrow_g();printf("   toupper(70) [F] -> res = [%d]\n",    toupper(70));
+	arrow_y();printf("ft_toupper(70) [F] -> res = [%d]\n", ft_toupper(70));
+	arrow_g();printf("   toupper(94) [^] -> res = [%d]\n",    toupper(94));
+	arrow_y();printf("ft_toupper(94) [^] -> res = [%d]\n", ft_toupper(94));
+	arrow_g();printf("   toupper(116) [t] -> res = [%d]\n",    toupper(116));
+	arrow_y();printf("ft_toupper(116) [t] -> res = [%d]\n", ft_toupper(116));
+	arrow_g();printf("   toupper(124) [|] -> res = [%d]\n",    toupper(124));
+	arrow_y();printf("ft_toupper(124) [|] -> res = [%d]\n", ft_toupper(124));
+	arrow_g();printf("   toupper(142) [∅] -> res = [%d]\n",    toupper(142));
+	arrow_y();printf("ft_toupper(142) [∅] -> res = [%d]\n", ft_toupper(142));
+
+	puts("════════════════════════════════════════════════════════════════");
+
+	arrow_g();printf("   tolower(42) [*] -> res = [%d]\n",    tolower(42));
+	arrow_y();printf("ft_tolower(42) [*] -> res = [%d]\n", ft_tolower(42));
+	arrow_g();printf("   tolower(52) [4] -> res = [%d]\n",    tolower(52));
+	arrow_y();printf("ft_tolower(52) [4] -> res = [%d]\n", ft_tolower(52));
+	arrow_g();printf("   tolower(70) [F] -> res = [%d]\n",    tolower(70));
+	arrow_y();printf("ft_tolower(70) [F] -> res = [%d]\n", ft_tolower(70));
+	arrow_g();printf("   tolower(94) [^] -> res = [%d]\n",    tolower(94));
+	arrow_y();printf("ft_tolower(94) [^] -> res = [%d]\n", ft_tolower(94));
+	arrow_g();printf("   tolower(116) [t] -> res = [%d]\n",    tolower(116));
+	arrow_y();printf("ft_tolower(116) [t] -> res = [%d]\n", ft_tolower(116));
+	arrow_g();printf("   tolower(124) [|] -> res = [%d]\n",    tolower(124));
+	arrow_y();printf("ft_tolower(124) [|] -> res = [%d]\n", ft_tolower(124));
+	arrow_g();printf("   tolower(142) [∅] -> res = [%d]\n",    tolower(142));
+	arrow_y();printf("ft_tolower(142) [∅] -> res = [%d]\n", ft_tolower(142));
+
+	puts("════════════════════════════════════════════════════════════════");
+
+	int fd = open("srcs/ft_cat.s", O_RDONLY);
+	arrow_y();printf("ft_cat(fd) -> [");
 	ft_cat(fd);
-	printf("\n]\n");
+	printf("]\n");
 
+	puts("════════════════════════════════════════════════════════════════");
+
+	printf("\n\tBONUS PART\n\n");
+
+	puts("════════════════════════════════════════════════════════════════");
+
+	arrow_g();printf("   ft_putchar('4') -> res = [");ft_putchar('4');printf("]\n");
+
+	arrow_y();printf("   ft_putstr(\"Born and raise in 42's school\") -> res = [");ft_putstr("Born and raise in 42's school");printf("]\n");
+	arrow_y();printf("   ft_putstr(\"\") -> res = [");ft_putstr("");printf("]\n");
+	arrow_y();printf("   ft_putstr(NULL) -> res = [");ft_putstr(NULL);printf("]\n");
+	arrow_g();printf("   ft_putnbr(42) -> res = [");ft_putnbr(42);printf("]\n");
+	arrow_g();printf("   ft_putnbr(42) -> res = [");ft_putnbr(-42);printf("]\n");
+	arrow_g();printf("   ft_putnbr(42) -> res = [");ft_putnbr(0);printf("]\n");
+	arrow_g();printf("   ft_putnbr(42) -> res = [");ft_putnbr(-9223372036854775807);printf("]\n");
+	arrow_g();printf("   ft_putnbr(42) -> res = [");ft_putnbr(9223372036854775807);printf("]\n");
 	return (0);
 }
