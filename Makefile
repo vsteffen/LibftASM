@@ -51,7 +51,8 @@ SRC	=	ft_puts.s \
 		ft_cat.s \
 		ft_putchar.s \
 		ft_putstr.s \
-		ft_putnbr.s
+		ft_putnbr.s \
+		ft_strcmp.s
 
 .PHONY: all clean fclean re tests
 

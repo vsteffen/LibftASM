@@ -33,5 +33,6 @@ int			ft_cat(int fd);
 void		ft_putchar(char c);
 void		ft_putstr(const char *c);
 void		ft_putnbr(long long int nb);
+int			ft_strcmp(const char *s1, const char *s2);
 
 #endif

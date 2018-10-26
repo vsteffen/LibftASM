@@ -214,15 +214,25 @@ int		main(int ac, char **av)
 
 	puts("════════════════════════════════════════════════════════════════");
 
-	arrow_g();printf("   ft_putchar('4') -> res = [");ft_putchar('4');printf("]\n");
-
-	arrow_y();printf("   ft_putstr(\"Born and raise in 42's school\") -> res = [");ft_putstr("Born and raise in 42's school");printf("]\n");
-	arrow_y();printf("   ft_putstr(\"\") -> res = [");ft_putstr("");printf("]\n");
-	arrow_y();printf("   ft_putstr(NULL) -> res = [");ft_putstr(NULL);printf("]\n");
-	arrow_g();printf("   ft_putnbr(42) -> res = [");ft_putnbr(42);printf("]\n");
-	arrow_g();printf("   ft_putnbr(42) -> res = [");ft_putnbr(-42);printf("]\n");
-	arrow_g();printf("   ft_putnbr(42) -> res = [");ft_putnbr(0);printf("]\n");
-	arrow_g();printf("   ft_putnbr(42) -> res = [");ft_putnbr(-9223372036854775807);printf("]\n");
-	arrow_g();printf("   ft_putnbr(42) -> res = [");ft_putnbr(9223372036854775807);printf("]\n");
+	arrow_y();printf("ft_putchar('4') -> res = [");ft_putchar('4');printf("]\n");
+	printf("\n");
+	arrow_y();printf("ft_putstr(\"Born and raise in 42's school\") -> res = [");ft_putstr("Born and raise in 42's school");printf("]\n");
+	arrow_y();printf("ft_putstr(\"\") -> res = [");ft_putstr("");printf("]\n");
+	arrow_y();printf("ft_putstr(NULL) -> res = [");ft_putstr(NULL);printf("]\n");
+	printf("\n");
+	arrow_y();printf("ft_putnbr(42) -> res = [");ft_putnbr(42);printf("]\n");
+	arrow_y();printf("ft_putnbr(42) -> res = [");ft_putnbr(-42);printf("]\n");
+	arrow_y();printf("ft_putnbr(42) -> res = [");ft_putnbr(0);printf("]\n");
+	arrow_y();printf("ft_putnbr(42) -> res = [");ft_putnbr(-9223372036854775807);printf("]\n");
+	arrow_y();printf("ft_putnbr(42) -> res = [");ft_putnbr(9223372036854775807);printf("]\n");
+	printf("\n");
+	arrow_g();printf("   strcmp(\"Marvin\", \"Marvel\") -> res = [%d]\n",    strcmp("Marvin", "Marvel"));
+	arrow_y();printf("ft_strcmp(\"Marvin\", \"Marvel\") -> res = [%d]\n", ft_strcmp("Marvin", "Marvel"));
+	arrow_g();printf("   strcmp(\"42\", \"4\") -> res = [%d]\n",    strcmp("42", "4"));
+	arrow_y();printf("ft_strcmp(\"42\", \"4\") -> res = [%d]\n", ft_strcmp("42", "4"));
+	arrow_g();printf("   strcmp(\"42\", \"\") -> res = [%d]\n",    strcmp("42", ""));
+	arrow_y();printf("ft_strcmp(\"42\", \"\") -> res = [%d]\n", ft_strcmp("42", ""));
+	arrow_g();printf("   strcmp(\"21 + 21\", \"21 + \\\") -> res = [%d]\n",    strcmp("21 + 21", "21 + \\"));
+	arrow_y();printf("ft_strcmp(\"21 + 21\", \"21 + \\\") -> res = [%d]\n", ft_strcmp("21 + 21", "21 + \\"));
 	return (0);
 }
