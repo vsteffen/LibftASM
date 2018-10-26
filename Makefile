@@ -34,25 +34,27 @@ HPATH	=	-I $(ROOT)/includes
 TESTS	=	$(ROOT)/tests
 TESTSRC	=	$(TESTS)/main.c
 
-SRC	=	ft_puts.s \
-		ft_strlen.s \
-		ft_memcpy.s \
-		ft_memset.s \
-		ft_strdup.s \
+SRC	=	ft_atoi.s \
 		ft_bzero.s \
-		ft_strcat.s \
-		ft_isalpha.s \
+		ft_cat.s \
 		ft_isalnum.s \
+		ft_isalpha.s \
 		ft_isascii.s \
 		ft_isdigit.s \
 		ft_isprint.s \
-		ft_tolower.s \
-		ft_toupper.s \
-		ft_cat.s \
+		ft_isspace.s \
+		ft_memcpy.s \
+		ft_memset.s \
 		ft_putchar.s \
-		ft_putstr.s \
 		ft_putnbr.s \
-		ft_strcmp.s
+		ft_puts.s \
+		ft_putstr.s \
+		ft_strcat.s \
+		ft_strcmp.s \
+		ft_strdup.s \
+		ft_strlen.s \
+		ft_tolower.s \
+		ft_toupper.s
 
 .PHONY: all clean fclean re tests
 
