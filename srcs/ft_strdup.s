@@ -23,9 +23,7 @@ _ft_strdup:
 	mov rsi, rdi
 	mov rdi, rax
 	mov rdx, qword[rsp+0]
-	push rax ; for 16 align
 	call _ft_memcpy
-	pop rax
 
 	mov	rsp, rbp
 	pop	rbp
