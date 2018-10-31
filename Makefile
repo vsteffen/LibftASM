@@ -66,7 +66,6 @@ $(NAME): $(OPATH) $(OBJ)
 	@echo "\033[32m ╔════════════════╗"
 	@echo " ║  All is done ! ║"
 	@echo " ╚════════════════╝\033[0m"
-	@$(CC) -o maintest $(TESTSRC) libfts.a $(HPATH)
 
 $(OPATH)/%.o: $(ASMPATH)/%.s
 	@$(NASM) -f macho64 -o $@ $<
@@ -90,7 +89,7 @@ fclean: clean
 	@$(RM) -f maintest
 	@echo "\033[32m$(NAME) deleted.\033[0m\n"
 
-tests:
+tests: $(NAME)
 	@echo "Building maintest"
 	@$(CC) -o maintest $(TESTSRC) libfts.a $(HPATH)
 

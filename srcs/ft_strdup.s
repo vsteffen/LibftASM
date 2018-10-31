@@ -10,21 +10,24 @@ _ft_strdup:
 	mov	rbp, rsp
 	sub rsp, 0x10
 
-	mov qword [rsp+8], rdi
+	mov qword[rsp+8], rdi
 	call _ft_strlen
+	inc rax
 	mov qword[rsp+0], rax ; store length in stack
 
 ; malloc call
 	mov rdi, rax
 	call _malloc
+	cmp rax, 0
+	je exit
 
 ; ft_memcpy call
-	mov rdi, qword [rsp+8]
-	mov rsi, rdi
 	mov rdi, rax
+	mov rsi, qword[rsp+8]
 	mov rdx, qword[rsp+0]
 	call _ft_memcpy
 
+exit:
 	mov	rsp, rbp
 	pop	rbp
 	ret
