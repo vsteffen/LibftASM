@@ -6,14 +6,14 @@
 /*   By: vsteffen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 17:26:22 by vsteffen          #+#    #+#             */
-/*   Updated: 2018/09/19 17:26:23 by vsteffen         ###   ########.fr       */
+/*   Updated: 2018/10/31 22:20:19 by vsteffen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTS_H
 # define LIBFTS_H
 
-#include <stddef.h>
+# include <stddef.h>
 
 int			ft_atoi(const char *s);
 void		ft_bzero(void *s, size_t n);
