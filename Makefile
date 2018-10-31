@@ -71,19 +71,19 @@ $(OPATH)/%.o: $(ASMPATH)/%.s
 	@$(NASM) -f macho64 -o $@ $<
 
 $(OPATH):
-	@echo "\n\033[33m\033[4m\033[1m → Libft \"Make\"\033[0m"
+	@echo "\n\033[33m\033[4m\033[1m → Libft ASM \"Make\"\033[0m"
 	@echo "Creating OBJ directory and files if they don't exist or have changed"
 	@$(MKDIR) $@
 
 clean:
-	@echo "\n\033[33m\033[4m\033[1m → Libft \"Clean\"\033[0m"
+	@echo "\n\033[33m\033[4m\033[1m → Libft ASM \"Clean\"\033[0m"
 	@echo "Deleting OBJS."
 	@$(RM) -rf $(OPATH)
 	@$(RM) -rf $(TEST)
 	@echo "\033[32mOBJS deleted.\033[0m\n"
 
 fclean: clean
-	@echo "\033[33m\033[4m\033[1m → Libft \"Fclean\"\033[0m"
+	@echo "\033[33m\033[4m\033[1m → Libft ASM \"Fclean\"\033[0m"
 	@echo "Deleting $(NAME)"
 	@$(RM) -f $(NAME)
 	@$(RM) -f maintest
