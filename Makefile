@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+PROJECT	=	LibftASM
 NAME	=	libfts.a
 
 CC		=	/usr/bin/clang
@@ -56,41 +57,61 @@ SRC	=	ft_atoi.s \
 		ft_tolower.s \
 		ft_toupper.s
 
-.PHONY: all clean fclean re tests
+
+COMPILE = no
+
+define PRINT_RED
+    @printf "\033[31m$(1)\033[0m"
+endef
+
+define PRINT_GREEN
+    @printf "\033[32m$(1)\033[0m"
+endef
+
+define PRINT_YELLOW
+    @printf "\033[33m$(1)\033[0m"
+endef
+
+define PRINT_STATUS
+	@printf '['
+	$(if $(filter $(2),SUCCESS),$(call PRINT_GREEN,$(1)))
+	$(if $(filter $(2),FAIL),$(call PRINT_RED,$(1)))
+	$(if $(filter $(2),WARN),$(call PRINT_YELLOW,$(1)))
+	$(if $(filter $(2),INFO),printf $(1))
+	$(if $(filter $(3),-n),printf $(1),echo ']')
+endef
+
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
 $(NAME): $(OPATH) $(OBJ)
-	@echo "Building $@"
+	$(if $(filter $(COMPILE),yes),@echo ']')
+	@printf $(PROJECT)": Building $@ ... "
 	@$(AR) rc $@ $(OBJ)
-	@echo "\033[32m ╔════════════════╗"
-	@echo " ║  All is done ! ║"
-	@echo " ╚════════════════╝\033[0m"
+	@$(RANLIB) $@
+	@$(call PRINT_STATUS,DONE,SUCCESS)
 
 $(OPATH)/%.o: $(ASMPATH)/%.s
 	@$(NASM) -f macho64 -o $@ $<
+	$(if $(filter $(COMPILE),no),@printf $(PROJECT)': Files compiling [')
+	@$(eval COMPILE := yes)
+	$(call PRINT_GREEN,.)
 
 $(OPATH):
-	@echo "\n\033[33m\033[4m\033[1m → Libft ASM \"Make\"\033[0m"
-	@echo "Creating OBJ directory and files if they don't exist or have changed"
-	@$(MKDIR) $@
+	@$(MKDIR) $@ $@$(PRINTF)
+	@echo $(PROJECT)": Directory for objects created"
 
 clean:
-	@echo "\n\033[33m\033[4m\033[1m → Libft ASM \"Clean\"\033[0m"
-	@echo "Deleting OBJS."
-	@$(RM) -rf $(OPATH)
-	@$(RM) -rf $(TEST)
-	@echo "\033[32mOBJS deleted.\033[0m\n"
+	@$(RM) -Rf $(OPATH)
+	@echo $(PROJECT)": Objects cleaned "
+	@printf $(PROJECT)": clean rule "
+	@$(call PRINT_STATUS,DONE,SUCCESS)
 
 fclean: clean
-	@echo "\033[33m\033[4m\033[1m → Libft ASM \"Fclean\"\033[0m"
-	@echo "Deleting $(NAME)"
 	@$(RM) -f $(NAME)
-	@$(RM) -f maintest
-	@echo "\033[32m$(NAME) deleted.\033[0m\n"
-
-tests: $(NAME)
-	@echo "Building maintest"
-	@$(CC) -o maintest $(TESTSRC) libfts.a $(HPATH)
+	@echo $(PROJECT)": executable clean"
+	@printf $(PROJECT)": fclean rules "
+	@$(call PRINT_STATUS,DONE,SUCCESS)
 
 re: fclean all
