@@ -5,20 +5,33 @@ section .text
 
 _ft_strcmp:
 	xor rax, rax
+	cmp rdi, 0
+	je str1_null
+	cmp rsi, 0
+	je str2_null
 
 while:
-	cmp byte[rdi], 0
-	je exit
 	mov al, byte[rdi]
+	cmp byte[rdi], 0
+	je str1_end_or_not_equal
 	cmp al, byte[rsi]
-	jne exit_nequal
+	jne str1_end_or_not_equal
 	inc rdi
 	inc rsi
 	jmp while
 
-exit_nequal:
+str1_null:
+	cmp rsi, 0
+	je exit
+	jmp str1_end_or_not_equal
+
+str2_null:
+	mov al, byte[rdi]
+	ret
+
+str1_end_or_not_equal:
 	sub al, byte[rsi]
-	js exit_neg
+	jb exit_neg
 
 exit:
 	ret
