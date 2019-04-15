@@ -6,7 +6,7 @@
 #    By: vsteffen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/06 20:52:05 by vsteffen          #+#    #+#              #
-#    Updated: 2018/09/17 16:07:12 by vsteffen         ###   ########.fr        #
+#    Updated: 2019/04/15 16:08:26 by vsteffen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ MAKE	=	/usr/bin/make -C
 MKDIR	=	/bin/mkdir -p
 AR		=	/usr/bin/ar
 RANLIB	=	/usr/bin/ranlib
-NASM	=	/Users/vsteffen/.brew/bin/nasm
+NASM	=	nasm
 LD		=	/usr/bin/ld
 GIT		=	/usr/bin/git
 
